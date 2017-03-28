@@ -1,0 +1,6 @@
+framework module Pods_Hayaoking {
+  umbrella header "Pods-Hayaoking-umbrella.h"
+
+  export *
+  module * { export * }
+}
