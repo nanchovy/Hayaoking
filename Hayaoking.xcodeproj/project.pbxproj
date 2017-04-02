@@ -8,16 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		5BF3C3F0D26664983C66C1A8 /* Pods_Hayaoking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF76913601FE4B819327090F /* Pods_Hayaoking.framework */; };
+		6E9EA2621E90DB4200C5DC1B /* OpponentSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EA2611E90DB4200C5DC1B /* OpponentSearchViewController.swift */; };
 		6EAAA6301E7FE48F00E62B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAA62F1E7FE48F00E62B77 /* AppDelegate.swift */; };
 		6EAAA6321E7FE48F00E62B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAA6311E7FE48F00E62B77 /* ViewController.swift */; };
 		6EAAA6351E7FE48F00E62B77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EAAA6331E7FE48F00E62B77 /* Main.storyboard */; };
 		6EAAA6371E7FE48F00E62B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EAAA6361E7FE48F00E62B77 /* Assets.xcassets */; };
 		6EAAA63A1E7FE48F00E62B77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EAAA6381E7FE48F00E62B77 /* LaunchScreen.storyboard */; };
+		6ECE0F1E1E8BBBB8002396D6 /* FindBattleRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */; };
 		6EECD7F91E8A5BD300E89719 /* BattleStandbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */; };
 		6EECD7FB1E8A655600E89719 /* UserInfoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECD7FA1E8A655600E89719 /* UserInfoJson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E9EA2611E90DB4200C5DC1B /* OpponentSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentSearchViewController.swift; sourceTree = "<group>"; };
 		6EAAA62C1E7FE48F00E62B77 /* Hayaoking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hayaoking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EAAA62F1E7FE48F00E62B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EAAA6311E7FE48F00E62B77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +28,7 @@
 		6EAAA6361E7FE48F00E62B77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EAAA6391E7FE48F00E62B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EAAA63B1E7FE48F00E62B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBattleRequestViewController.swift; sourceTree = "<group>"; };
 		6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleStandbyViewController.swift; sourceTree = "<group>"; };
 		6EECD7FA1E8A655600E89719 /* UserInfoJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoJson.swift; sourceTree = "<group>"; };
 		747832E90B4CA37B88F06CB8 /* Pods-Hayaoking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hayaoking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hayaoking/Pods-Hayaoking.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +80,9 @@
 				6EAAA62F1E7FE48F00E62B77 /* AppDelegate.swift */,
 				6EAAA6311E7FE48F00E62B77 /* ViewController.swift */,
 				6EAAA6331E7FE48F00E62B77 /* Main.storyboard */,
+				6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */,
 				6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */,
+				6E9EA2611E90DB4200C5DC1B /* OpponentSearchViewController.swift */,
 				6EECD7FA1E8A655600E89719 /* UserInfoJson.swift */,
 				6EAAA6361E7FE48F00E62B77 /* Assets.xcassets */,
 				6EAAA6381E7FE48F00E62B77 /* LaunchScreen.storyboard */,
@@ -219,8 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EECD7F91E8A5BD300E89719 /* BattleStandbyViewController.swift in Sources */,
+				6E9EA2621E90DB4200C5DC1B /* OpponentSearchViewController.swift in Sources */,
 				6EAAA6321E7FE48F00E62B77 /* ViewController.swift in Sources */,
 				6EECD7FB1E8A655600E89719 /* UserInfoJson.swift in Sources */,
+				6ECE0F1E1E8BBBB8002396D6 /* FindBattleRequestViewController.swift in Sources */,
 				6EAAA6301E7FE48F00E62B77 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
