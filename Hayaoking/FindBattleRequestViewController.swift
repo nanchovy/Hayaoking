@@ -45,4 +45,41 @@ class FindBattleRequestViewController: UIViewController {
     }
     */
 
+    @IBOutlet weak var titleText: UILabel!  // タイトルテキスト
+    let userdefaults = UserDefaults.standard
+    
+    @IBAction func pushStartButton(_ sender: Any) {
+        // 初回のボタンクリックでは，ユーザ名を入力させるダイアログを表示する。
+        // 二回目以降では，バトルのリクエストがあるかを確認する。
+        if UserDefaults.standard.bool(forKey: "signUp") == false {
+            titleText.text = "HOGE"
+            // 初回，ユーザ名を入力させ，登録する処理
+            let signUpAlert = UIAlertController(title: "初回登録", message: "ユーザ名を入力してください", preferredStyle: .alert)
+            
+            titleText.text = "HOGE2"
+            
+//            // OKボタンの設定
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+//                (action:UIAlertAction!) -> Void in
+//                
+//                self.titleText.text = "HOGEHOGE"
+//                
+//            })
+//            signUpAlert.addAction(okAction)
+            
+            // テキストフィールドを追加
+            signUpAlert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+                textField.placeholder = "ユーザ名"
+            })
+            
+            // アラートを画面に表示
+            self.present(signUpAlert, animated: true, completion: nil)
+        }else{
+            // 二回目以降，バトルリクエストの有無をしらべる処理
+        }
+
+    }
+    
+    
+    
 }
