@@ -7,7 +7,7 @@
 //
 
 
-//ここでは，試合の申し込みが受理されたか，もしくは自分に試合が申し込まれているかを調べる。
+//ここでは，試合の申し込みが受理さvarたか，もしくは自分に試合が申し込まれているかを調べる。
 
 // 対戦記録テーブルの中で,「対戦を申し込まれた人のuserIDが自分」かつ，試合の成立がfalseであるものが存在すれば，それを表示する。試合を受けるなら，試合の成立をtrueにする。試合を受けないなら，行ごとテーブルを削除する。
 
@@ -16,16 +16,17 @@
 import UIKit
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class FindBattleRequestViewController: UIViewController {
     
-
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // let userInfo = ["name": "test1"]
+        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters: ["name": "test1"])
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -34,7 +35,7 @@ class FindBattleRequestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
@@ -55,27 +56,38 @@ class FindBattleRequestViewController: UIViewController {
             titleText.text = "HOGE"
             // 初回，ユーザ名を入力させ，登録する処理
             let signUpAlert = UIAlertController(title: "初回登録", message: "ユーザ名を入力してください", preferredStyle: .alert)
+            // ユーザ登録のためのurl
             
-            titleText.text = "HOGE2"
             
-//            // OKボタンの設定
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
-//                (action:UIAlertAction!) -> Void in
-//                
-//                self.titleText.text = "HOGEHOGE"
-//                
-//            })
-//            signUpAlert.addAction(okAction)
+            titleText.text = "HOGE2"  //
+            
+            // OKボタンの設定
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+                (action:UIAlertAction!) -> Void in})
+            signUpAlert.addAction(okAction)
+            
             
             // テキストフィールドを追加
             signUpAlert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
                 textField.placeholder = "ユーザ名"
+
+
+                
+                
             })
             
             // アラートを画面に表示
             self.present(signUpAlert, animated: true, completion: nil)
+            
+            
+
+            
+
+            
+
+            
         }else{
-            // 二回目以降，バトルリクエストの有無をしらべる処理
+            // 二回目以降，バトルリクエストの有無をしらべる処理,サーバと通信して確かめる。
         }
 
     }
