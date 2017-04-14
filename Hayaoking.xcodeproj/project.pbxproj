@@ -16,6 +16,7 @@
 		6EAAA63A1E7FE48F00E62B77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EAAA6381E7FE48F00E62B77 /* LaunchScreen.storyboard */; };
 		6ECE0F1E1E8BBBB8002396D6 /* FindBattleRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */; };
 		6ED63EB41EA0E4CC003DC497 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED63EB31EA0E4CC003DC497 /* Main.storyboard */; };
+		6ED63EB61EA0E98F003DC497 /* OpponentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED63EB51EA0E98F003DC497 /* OpponentListViewController.swift */; };
 		6EECD7F91E8A5BD300E89719 /* BattleStandbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */; };
 		6EECD7FB1E8A655600E89719 /* UserInfoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECD7FA1E8A655600E89719 /* UserInfoJson.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		6EAAA63B1E7FE48F00E62B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBattleRequestViewController.swift; sourceTree = "<group>"; };
 		6ED63EB31EA0E4CC003DC497 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
+		6ED63EB51EA0E98F003DC497 /* OpponentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentListViewController.swift; sourceTree = "<group>"; };
 		6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleStandbyViewController.swift; sourceTree = "<group>"; };
 		6EECD7FA1E8A655600E89719 /* UserInfoJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoJson.swift; sourceTree = "<group>"; };
 		747832E90B4CA37B88F06CB8 /* Pods-Hayaoking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hayaoking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hayaoking/Pods-Hayaoking.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				6EAAA6311E7FE48F00E62B77 /* ViewController.swift */,
 				6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */,
 				6ED63EB31EA0E4CC003DC497 /* Main.storyboard */,
+				6ED63EB51EA0E98F003DC497 /* OpponentListViewController.swift */,
 				6E1E49CD1E94F27800703F09 /* User.swift */,
 				6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */,
 				6E9EA2611E90DB4200C5DC1B /* OpponentSearchViewController.swift */,
@@ -229,6 +232,7 @@
 			files = (
 				6EECD7F91E8A5BD300E89719 /* BattleStandbyViewController.swift in Sources */,
 				6E9EA2621E90DB4200C5DC1B /* OpponentSearchViewController.swift in Sources */,
+				6ED63EB61EA0E98F003DC497 /* OpponentListViewController.swift in Sources */,
 				6EAAA6321E7FE48F00E62B77 /* ViewController.swift in Sources */,
 				6EECD7FB1E8A655600E89719 /* UserInfoJson.swift in Sources */,
 				6ECE0F1E1E8BBBB8002396D6 /* FindBattleRequestViewController.swift in Sources */,
