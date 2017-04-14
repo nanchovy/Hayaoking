@@ -10,7 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class OpponentListViewController: UIViewController {
+class OpponentListViewController: UIViewController, UITableViewDataSource {
+    var names: [[String: String?]] = []
     let table = UITableView()
     
     override func viewDidLoad() {
@@ -19,10 +20,12 @@ class OpponentListViewController: UIViewController {
         title = "対戦可能なユーザ"
         table.frame = view.frame
         view.addSubview(table)
-        
+        table.dataSource = self
         getOpponentName()
     }
 
+
+    
     func getOpponentName(){
         Alamofire.request(battlesUrl).responseJSON { response in
             guard let object = response.result.value else {
@@ -30,10 +33,26 @@ class OpponentListViewController: UIViewController {
             }
             let json = JSON(object)
             json.forEach { (_, json) in
-                print(response.result.value)
-                //print(json[applicant].string)  // 対戦を申し込んだ人の名前を取得
+                let name: [String: String?] = [
+                    "applicant": json["applicant"].string,
+                    "getup": json["getup"].string
+                ]
+                self.names.append(name)
             }
+            self.table.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return names.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        let name = names[indexPath.row]
+        cell.textLabel?.text = name["applicant"]! // 対戦相手の名前をtextLabelにセット
+        cell.detailTextLabel?.text = name["getup"]! // 起きる時間をdetailTextLabelにセット
+        return cell
     }
     
 }
