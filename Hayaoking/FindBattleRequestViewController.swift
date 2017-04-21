@@ -18,13 +18,18 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
+let req = ["name":"test3"]
+
 class FindBattleRequestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // let userInfo = ["name": "test1"]
-        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters: ["name": "test1"])
+        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
+            .responseJSON{ response in
+                debugPrint(response)
+            }
         
         
         // Do any additional setup after loading the view.
