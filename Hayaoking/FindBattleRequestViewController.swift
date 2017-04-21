@@ -72,9 +72,10 @@ class FindBattleRequestViewController: UIViewController {
             // テキストフィールドを追加
             signUpAlert.addTextField(configurationHandler: {(userNametextField: UITextField!) -> Void in
                 userNametextField.placeholder = "ユーザ名"
-                let userName = userNametextField.text
+ 
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: {
                     (action:UIAlertAction!) -> Void in
+                    let userName = userNametextField.text
                     // この中にOKボタンを押された時の処理を記述する
                     self.registerUserName(inputtedUserName: userName!)
                 })
@@ -119,6 +120,7 @@ class FindBattleRequestViewController: UIViewController {
     
     func registerUserName(inputtedUserName: String) -> Void {
         let req = ["name":inputtedUserName]
+        debugPrint(req)
         Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
             .responseJSON{ response in debugPrint(response)}
         
