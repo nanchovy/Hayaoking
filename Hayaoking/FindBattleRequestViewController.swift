@@ -18,18 +18,20 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-let req = ["name":"test3"]
+
+
+
 
 class FindBattleRequestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // let userInfo = ["name": "test1"]
-        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
-            .responseJSON{ response in
-                debugPrint(response)
-            }
+// 木の下のコードはこのままで動くので参考のために置いておく。
+//        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
+//            .responseJSON{ response in
+//                debugPrint(response)
+//            }
         
         
         // Do any additional setup after loading the view.
@@ -66,23 +68,41 @@ class FindBattleRequestViewController: UIViewController {
             
             titleText.text = "HOGE2"  //
             
-            // OKボタンの設定
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
-                (action:UIAlertAction!) -> Void in})
-            signUpAlert.addAction(okAction)
-            
             
             // テキストフィールドを追加
-            signUpAlert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
-                textField.placeholder = "ユーザ名"
-
+            signUpAlert.addTextField(configurationHandler: {(userNametextField: UITextField!) -> Void in
+                userNametextField.placeholder = "ユーザ名"
+                let userName = userNametextField.text
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+                    (action:UIAlertAction!) -> Void in
+                    // この中にOKボタンを押された時の処理を記述する
+                    self.registerUserName(inputtedUserName: userName!)
+                })
+                signUpAlert.addAction(okAction)
 
                 
-                
-            })
+                })
+            
+            // OKボタンの設定
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+//                (action:UIAlertAction!) -> Void in
+//                // この中にOKボタンを押された時の処理を記述する
+//                registerUserName(userName: userName)
+//            })
+//            signUpAlert.addAction(okAction)
+            
+            
             
             // アラートを画面に表示
             self.present(signUpAlert, animated: true, completion: nil)
+            
+//            Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
+//                .responseJSON{ response in debugPrint(response)}
+            
+            
+            
+            
+            
             
             
 
@@ -97,6 +117,11 @@ class FindBattleRequestViewController: UIViewController {
 
     }
     
-    
+    func registerUserName(inputtedUserName: String) -> Void {
+        let req = ["name":inputtedUserName]
+        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
+            .responseJSON{ response in debugPrint(response)}
+        
+    }
     
 }
