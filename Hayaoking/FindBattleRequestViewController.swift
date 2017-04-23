@@ -119,10 +119,22 @@ class FindBattleRequestViewController: UIViewController {
     }
     
     func registerUserName(inputtedUserName: String) -> Void {
+        // 入力されたユーザ名の登録をリクエストとして送る関数
         let req = ["name":inputtedUserName]
         debugPrint(req)
-        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
-            .responseJSON{ response in debugPrint(response)}
+        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req).responseJSON{ response in
+//            debugPrint(type(of: response.result.value))
+            let userJson = JSON(response.result.value)
+            let user_id = userJson["id"]
+            debugPrint(type(of: user_id))
+//            debugPrint(userJson["id"])
+//            debugPrint(type(of: userJson["id"]))
+
+//            let user = User(
+//                user_id: userJson["id"],
+//                name: userJson["name"])
+//            debugPrint(user)
+        }
         
     }
     
