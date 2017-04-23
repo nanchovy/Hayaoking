@@ -36,3 +36,27 @@ struct User {
 }
 
 let sampleUser = User(user_id: 30, name: "testname", win: 1, lose: 2, draw: 3, score: 4)
+
+struct MatchingDate {
+    var year: String
+    var month: String
+    var day: String
+    var hour: String
+    var min: String
+    
+}
+
+struct Matching {
+    var applicant: String
+    var authorizer: String
+    var matchingDate: MatchingDate
+    
+    init(applicant: String, authorizer: String, year: String, month: String, day:String, hour: String, min: String){
+        self.applicant = applicant
+        self.authorizer = authorizer
+        self.matchingDate.year = year
+        self.matchingDate.month = month
+        self.matchingDate.day = day
+        self.matchingDate.hour = hour
+    }
+}
