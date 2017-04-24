@@ -27,34 +27,20 @@ class FindBattleRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-// 木の下のコードはこのままで動くので参考のために置いておく。
+// この下のコードはこのままで動くので参考のために置いておく。
 //        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
 //            .responseJSON{ response in
 //                debugPrint(response)
 //            }
-        
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBOutlet weak var titleText: UILabel!  // タイトルテキスト
-    let userdefaults = UserDefaults.standard
     
     @IBAction func pushStartButton(_ sender: Any) {
         // 初回のボタンクリックでは，ユーザ名を入力させるダイアログを表示する。
@@ -124,18 +110,26 @@ class FindBattleRequestViewController: UIViewController {
         debugPrint(req)
         Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req).responseJSON{ response in
 //            debugPrint(type(of: response.result.value))
-            let userJson = JSON(response.result.value)
-            let user_id = userJson["id"]
-            debugPrint(type(of: user_id))
-//            debugPrint(userJson["id"])
-//            debugPrint(type(of: userJson["id"]))
-
-//            let user = User(
-//                user_id: userJson["id"],
-//                name: userJson["name"])
-//            debugPrint(user)
+            let userJson = JSON(response.result.value!)  // ユーザ名が被っていると，ここでエラーが出る。あとで対応。
+            let user_id = userJson["id"].intValue  // 悩んだところ。
+            
+            let owner = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)  // 初回ユーザ登録完了
+//            userDefaults.set(true, forKey: "signUp")
+//            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
+            // debugPrint(owner)
+            
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
+            self.present(nextView, animated: true, completion: nil)
+            
         }
         
     }
+    
+//    func openNextView() -> Void {
+//        let storyboard: UIStoryboard = self.storyboard!
+//        let nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
+//        present(nextView, animated: true, completion: nil)
+//    }
     
 }

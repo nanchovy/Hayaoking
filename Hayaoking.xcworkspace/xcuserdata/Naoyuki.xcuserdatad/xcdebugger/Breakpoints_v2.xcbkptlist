@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hayaoking/FindBattleRequestViewController.swift"
-            timestampString = "514470513.712278"
+            timestampString = "514718604.443452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "pushStartButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,27 +42,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hayaoking/FindBattleRequestViewController.swift"
-            timestampString = "514470513.712278"
+            timestampString = "514718604.443452"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "pushStartButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hayaoking/FindBattleRequestViewController.swift"
+            timestampString = "514718604.443452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "pushStartButton(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hayaoking/FindBattleRequestViewController.swift"
-            timestampString = "514473085.976574"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
             landmarkName = "pushStartButton(_:)"
             landmarkType = "7">
          </BreakpointContent>

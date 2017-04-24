@@ -46,17 +46,18 @@ struct MatchingDate {
     
 }
 
-struct Matching {
-    var applicant: String
-    var authorizer: String
-    var matchingDate: MatchingDate
-    
-    init(applicant: String, authorizer: String, year: String, month: String, day:String, hour: String, min: String){
-        self.applicant = applicant
-        self.authorizer = authorizer
-        self.matchingDate.year = year
-        self.matchingDate.month = month
-        self.matchingDate.day = day
-        self.matchingDate.hour = hour
-    }
-}
+//struct Matching {
+//    var applicant: String
+//    var authorizer: String
+//    var matchingDate: MatchingDate
+//    
+//    init(applicant: String, authorizer: String, year: String, month: String, day:String, hour: String, min: String){
+//        self.applicant = applicant
+//        self.authorizer = authorizer
+////        self.matchingDate.year = year
+////        self.matchingDate.month = month
+////        self.matchingDate.day = day
+////        self.matchingDate.hour = hour
+//        
+//    }
+//}
