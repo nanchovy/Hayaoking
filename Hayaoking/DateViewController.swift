@@ -7,30 +7,24 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Foundation
+
+
 
 class DateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     @IBOutlet weak var RollDatePicker: UIDatePicker!
 
     @IBAction func DateApplyButton(_ sender: Any) {
@@ -43,12 +37,15 @@ class DateViewController: UIViewController {
         let dayStr = stringCutter(str: dateString, start:8, end:10)
         let hourStr = stringCutter(str: dateString, start:14, end:16)
         let minStr = stringCutter(str: dateString, start:17, end:19)
-        debugPrint(yearStr)
-        debugPrint(monthStr)
-        debugPrint(dayStr)
-        debugPrint(hourStr)
-        debugPrint(minStr)
+        debugPrint(Int(yearStr)!)
+        debugPrint(Int(monthStr)!)
+        debugPrint(Int(dayStr)!)
+        debugPrint(Int(hourStr)!)
+        debugPrint(Int(minStr)!)
         
+        
+        let recruit = JSON(sampleMatching)
+        debugPrint(recruit)
     }
     
     func stringCutter(str: String, start: Int, end: Int) -> String {
@@ -57,5 +54,9 @@ class DateViewController: UIViewController {
     }
     
     
+    
+    
+//    func postRecruitJson() {
+//    }
     
 }
