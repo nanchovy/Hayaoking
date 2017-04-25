@@ -118,36 +118,14 @@ class FindBattleRequestViewController: UIViewController {
 //            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
             // debugPrint(owner)
             
-            let storyboard: UIStoryboard = self.storyboard!
-            let nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
-            self.present(nextView, animated: true, completion: nil)
+//            let storyboard: UIStoryboard = self.storyboard!
+//            let nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
+//            self.present(nextView, animated: true, completion: nil)
             
         }
-//        debugPrint(sampleMatchingJSON)
+
         
-        Alamofire.request("http://localhost:3000/recruits.json", method: .post, parameters:[
-            "applicant": "test5",
-            "getup":
-                ["year":2017,
-                "month":5,
-                "day":5,
-                "hour":8,
-                "min":0
-            ]
-        ]).responseJSON{ response in
-            debugPrint("start")
-            debugPrint(response)
-            debugPrint("end")
-            let responseJson = JSON(response.result.value!)  // ユーザ名が被っていると，ここでエラーが出る。あとで対応。
-            let recruit_id = responseJson["id"].intValue  // 悩んだところ。
-            
-            debugPrint(recruit_id)  // 初回ユーザ登録完了
-            //            userDefaults.set(true, forKey: "signUp")
-            //            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
-            // debugPrint(owner)
-            
-            
-        }
+        
         
     }
     

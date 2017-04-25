@@ -10,6 +10,7 @@
 		5BF3C3F0D26664983C66C1A8 /* Pods_Hayaoking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF76913601FE4B819327090F /* Pods_Hayaoking.framework */; };
 		6E00C8801EAC9E8A002770D2 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E00C87F1EAC9E8A002770D2 /* DateViewController.swift */; };
 		6E1E49CE1E94F27800703F09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E49CD1E94F27800703F09 /* User.swift */; };
+		6E3BDD711EAF7432008FD221 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3BDD701EAF7432008FD221 /* test.swift */; };
 		6E9EA2621E90DB4200C5DC1B /* OpponentSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EA2611E90DB4200C5DC1B /* OpponentSearchViewController.swift */; };
 		6EAAA6301E7FE48F00E62B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAA62F1E7FE48F00E62B77 /* AppDelegate.swift */; };
 		6EAAA6321E7FE48F00E62B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAA6311E7FE48F00E62B77 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		6E00C87F1EAC9E8A002770D2 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		6E1E49CD1E94F27800703F09 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6E3BDD701EAF7432008FD221 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		6E9EA2611E90DB4200C5DC1B /* OpponentSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentSearchViewController.swift; sourceTree = "<group>"; };
 		6EAAA62C1E7FE48F00E62B77 /* Hayaoking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hayaoking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EAAA62F1E7FE48F00E62B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				6E00C87F1EAC9E8A002770D2 /* DateViewController.swift */,
 				6ED63EB51EA0E98F003DC497 /* OpponentListViewController.swift */,
 				6E1E49CD1E94F27800703F09 /* User.swift */,
+				6E3BDD701EAF7432008FD221 /* test.swift */,
 				6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */,
 				6E9EA2611E90DB4200C5DC1B /* OpponentSearchViewController.swift */,
 				6EECD7FA1E8A655600E89719 /* UserInfoJson.swift */,
@@ -236,6 +239,7 @@
 				6EECD7F91E8A5BD300E89719 /* BattleStandbyViewController.swift in Sources */,
 				6E9EA2621E90DB4200C5DC1B /* OpponentSearchViewController.swift in Sources */,
 				6ED63EB61EA0E98F003DC497 /* OpponentListViewController.swift in Sources */,
+				6E3BDD711EAF7432008FD221 /* test.swift in Sources */,
 				6EAAA6321E7FE48F00E62B77 /* ViewController.swift in Sources */,
 				6EECD7FB1E8A655600E89719 /* UserInfoJson.swift in Sources */,
 				6ECE0F1E1E8BBBB8002396D6 /* FindBattleRequestViewController.swift in Sources */,

@@ -54,7 +54,7 @@ struct MatchingDate {
     
 }
 
-let sampleMatchingDate = MatchingDate(year: 2017, month: 4, day: 28, hour: 21, min:00)
+
 
 struct Matching {
     var applicant: String
@@ -89,6 +89,32 @@ struct Matching {
     }
 }
 
-let sampleMatching = Matching(applicant: "okYama", authorizer: "Yakuza", matchingDate: sampleMatchingDate)
+struct NoOpponentMatching {
+    var recruitId: Int
+    var applicant: String
+    var matchingDate: MatchingDate
+    
+    init(recruitId: Int, applicant: String, matchingDate: MatchingDate) {
+        self.recruitId = recruitId
+        self.applicant = applicant
+        self.matchingDate = matchingDate
 
-let sampleMatchingJSON = sampleMatching.toJson()
+    }
+    
+    func toJson() -> [String: Any] {  // NoOpponentMatchingはユーザにおいておく確認用なので，toJsonはおそらく使わない
+        let dict: [String: Any] =
+            ["applicant": self.applicant,
+             "getup": [
+                "year": self.matchingDate.year,
+                "month": self.matchingDate.month,
+                "day": self.matchingDate.day,
+                "hour": self.matchingDate.hour,
+                "min": self.matchingDate.min
+                ]
+        ]
+        
+        return dict
+    }
+}
+
+
