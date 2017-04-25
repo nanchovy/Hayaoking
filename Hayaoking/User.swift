@@ -71,6 +71,24 @@ struct Matching {
 //        self.matchingDate.hour = hour
         
     }
+    
+    func toJson() -> [String: Any] {
+        let dict: [String: Any] =
+            ["applicant": self.applicant,
+             "authorizer": self.authorizer,
+             "getup": [
+                "year": self.matchingDate.year,
+                "month": self.matchingDate.month,
+                "day": self.matchingDate.day,
+                "hour": self.matchingDate.hour,
+                "min": self.matchingDate.min
+                ]
+        ]
+        
+        return dict
+    }
 }
 
 let sampleMatching = Matching(applicant: "okYama", authorizer: "Yakuza", matchingDate: sampleMatchingDate)
+
+let sampleMatchingJSON = sampleMatching.toJson()

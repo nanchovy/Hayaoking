@@ -44,8 +44,6 @@ class DateViewController: UIViewController {
         debugPrint(Int(minStr)!)
         
         
-        let recruit = JSON(sampleMatching)
-        debugPrint(recruit)
     }
     
     func stringCutter(str: String, start: Int, end: Int) -> String {
