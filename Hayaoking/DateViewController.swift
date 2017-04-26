@@ -69,7 +69,7 @@ class DateViewController: UIViewController {
                 let recruitMin = self.stringCutter(str: recruitGetup, start:14, end:16)
                 
                 let recruitMatchingDate = MatchingDate(year: recruitYear, month: recruitMonth, day: recruitDay, hour: recruitHour, min:recruitMin)
-                let recruitMatch = NoOpponentMatching(recruitId: recruitId, applicant: "test1", matchingDate: recruitMatchingDate)
+                var recruitMatch = NoOpponentMatching(recruitId: recruitId, applicant: "test1", matchingDate: recruitMatchingDate)
                 
                 var storyboard: UIStoryboard = self.storyboard!  // OpponentWaitingViewに画面遷移
                 var nextView = storyboard.instantiateViewController(withIdentifier: "owv")

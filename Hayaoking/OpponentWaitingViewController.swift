@@ -15,7 +15,14 @@ class OpponentWaitingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        debugPrint()
         
+        var showStatusLabel = UILabel()
+        showStatusLabel.text = "hoge"
+        showStatusLabel.numberOfLines = 0
+        showStatusLabel.sizeToFit()
+        showStatusLabel.center =  self.view.center
+        self.view.addSubview(showStatusLabel)
 
     }
 

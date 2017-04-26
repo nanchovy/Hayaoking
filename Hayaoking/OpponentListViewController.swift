@@ -10,9 +10,10 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class OpponentListViewController: UIViewController, UITableViewDataSource {
+class OpponentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var names: [[String: String?]] = []
     let table = UITableView()
+    var testName: [String: String?] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class OpponentListViewController: UIViewController, UITableViewDataSource {
         view.addSubview(table)
         table.dataSource = self
         getOpponentName()
+        
     }
 
 
@@ -53,6 +55,11 @@ class OpponentListViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = name["applicant"]! // 対戦相手の名前をtextLabelにセット
         cell.detailTextLabel?.text = name["getup"]! // 起きる時間をdetailTextLabelにセット
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.testName = self.names[indexPath.row]
+        debugPrint(testName)
     }
     
 }
