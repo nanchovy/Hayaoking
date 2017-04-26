@@ -9,8 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-let url = "http://localhost:3000/users.json"
-let battlesUrl: String = "http://localhost:3000/battles.json"
+
 
 struct signUpUser {
     var name: String
