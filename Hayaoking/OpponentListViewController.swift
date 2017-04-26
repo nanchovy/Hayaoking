@@ -27,7 +27,7 @@ class OpponentListViewController: UIViewController, UITableViewDataSource {
 
     
     func getOpponentName(){
-        Alamofire.request(battlesUrl).responseJSON { response in
+        Alamofire.request("http://52.196.173.16/recruits.json").responseJSON { response in
             guard let object = response.result.value else {
                 return
             }

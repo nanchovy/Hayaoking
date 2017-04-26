@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Foundation
 import Alamofire
-let testUser = "test13"
+let testUser = "test3"
 
 
 class DateViewController: UIViewController {
@@ -47,7 +47,7 @@ class DateViewController: UIViewController {
         debugPrint(min)
 
         
-        Alamofire.request("http://localhost:3000/recruits.json", method: .post, parameters:[
+        Alamofire.request("http://52.196.173.16/recruits.json", method: .post, parameters:[
             "applicant": testUser,
             "getup":
                 ["year":year,
@@ -71,9 +71,9 @@ class DateViewController: UIViewController {
                 let recruitMatchingDate = MatchingDate(year: recruitYear, month: recruitMonth, day: recruitDay, hour: recruitHour, min:recruitMin)
                 let recruitMatch = NoOpponentMatching(recruitId: recruitId, applicant: "test1", matchingDate: recruitMatchingDate)
                 
-                
-                
-                debugPrint(recruitMatch)
+                var storyboard: UIStoryboard = self.storyboard!  // OpponentWaitingViewに画面遷移
+                var nextView = storyboard.instantiateViewController(withIdentifier: "owv")
+                self.present(nextView, animated: true, completion: nil)
                 
       }
         

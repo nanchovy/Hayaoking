@@ -105,11 +105,10 @@ class FindBattleRequestViewController: UIViewController {
     }
     
     func registerUserName(inputtedUserName: String) -> Void {
-        // 入力されたユーザ名の登録をリクエストとして送る関数
+        // 入力されたユーザ名の登録をリクエストとして送る関数。成功したら画面遷移
         let req = ["name":inputtedUserName]
         debugPrint(req)
-        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req).responseJSON{ response in
-//            debugPrint(type(of: response.result.value))
+        Alamofire.request("http://52.196.173.16/users.json", method: .post, parameters:req).responseJSON{ response in
             let userJson = JSON(response.result.value!)  // ユーザ名が被っていると，ここでエラーが出る。あとで対応。
             let user_id = userJson["id"].intValue  // 悩んだところ。
             
@@ -118,9 +117,10 @@ class FindBattleRequestViewController: UIViewController {
 //            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
             // debugPrint(owner)
             
-//            let storyboard: UIStoryboard = self.storyboard!
-//            let nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
-//            self.present(nextView, animated: true, completion: nil)
+            // 画面遷移
+            var storyboard: UIStoryboard = self.storyboard!
+            var nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
+            self.present(nextView, animated: true, completion: nil)
             
         }
 
