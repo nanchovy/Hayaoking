@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class OpponentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var names: [[String: String?]] = []
+    var names: [[String: Any?]] = []
     let table = UITableView()
-    var testName: [String: String?] = [:]
+    var recruitId: [String: Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,7 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
         table.frame = view.frame
         view.addSubview(table)
         table.dataSource = self
+        table.delegate = self
         getOpponentName()
         
     }
@@ -35,9 +36,10 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
             }
             let json = JSON(object)
             json.forEach { (_, json) in
-                let name: [String: String?] = [
+                let name: [String: Any?] = [
                     "applicant": json["applicant"].string,
-                    "getup": json["getup"].string
+                    "getup": json["getup"].string,
+                    "id": json["id"].int
                 ]
                 self.names.append(name)
             }
@@ -52,14 +54,16 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let name = names[indexPath.row]
-        cell.textLabel?.text = name["applicant"]! // 対戦相手の名前をtextLabelにセット
-        cell.detailTextLabel?.text = name["getup"]! // 起きる時間をdetailTextLabelにセット
+        cell.textLabel?.text = name["applicant"]! as! String // 対戦相手の名前をtextLabelにセット
+        cell.detailTextLabel?.text = name["getup"]! as! String // 起きる時間をdetailTextLabelにセット
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.testName = self.names[indexPath.row]
-        debugPrint(testName)
+        // セルが押された時の動作。jsonでPOSTし，画面遷移とダイアログ表示。
+        self.recruitId = self.names[indexPath.row]
+        debugPrint(recruitId["id"] as! Int)
+        
     }
     
 }
