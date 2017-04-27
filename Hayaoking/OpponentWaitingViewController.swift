@@ -18,15 +18,17 @@ class OpponentWaitingViewController: UIViewController {
 //        debugPrint(owner?.userId)
 //        var userInfoText: String = "ユーザID: \(owner?.userId)"
 
-        
+        var userInfoText = "ユーザID:\(owner?.userId)\nユーザ名:\(owner?.name)\nwin:\(owner?.win)\nlose:\(owner?.lose)\ndraw:\(owner?.draw)\nwin:\(owner?.score)\n"
         var showStatusLabel = UILabel()
-        showStatusLabel.text = "username: \(owner?.name)"
+        showStatusLabel.text = userInfoText
         showStatusLabel.numberOfLines = 0
         showStatusLabel.sizeToFit()
-        showStatusLabel.center =  self.view.center
+        showStatusLabel.center =  CGPoint(x:150, y:150)
         self.view.addSubview(showStatusLabel)
         
         super.viewDidLoad()
+        
+        
         
         
 

@@ -138,7 +138,6 @@ class FindBattleRequestViewController: UIViewController {
                 debugPrint("hoge")
                 debugPrint(owner.name)
                 nextView.owner = owner
-                nextView.test = "test"
                 self.present(nextView, animated: true, completion: nil)
             })
             signUpCompleteAlert.addAction(signUpComplete)

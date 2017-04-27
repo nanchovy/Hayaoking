@@ -12,6 +12,12 @@ class BattleStandbyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefaults = UserDefaults.standard
+        
+        let testa = userDefaults.bool(forKey: "applyButtle")
+        
+        debugPrint(testa)
 
         // Do any additional setup after loading the view.
     }

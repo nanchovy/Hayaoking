@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaults = UserDefaults.standard  // 初回のみユーザ名設定をするため，setupをfalseで設定
         userDefaults.set(false, forKey: "signUp")
         
+        userDefaults.set(true, forKey: "applyBattle")  // 自分が今バトルを申し込んでいるかどうかを調べる。デフォルトはfalseで待機状態。
         
         return true
     }
