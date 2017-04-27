@@ -18,10 +18,6 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-
-
-
-
 class FindBattleRequestViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -110,12 +106,22 @@ class FindBattleRequestViewController: UIViewController {
         debugPrint(req)
         Alamofire.request("http://52.196.173.16/users.json", method: .post, parameters:req).responseJSON{ response in
             let userJson = JSON(response.result.value!)  // ユーザ名が被っていると，ここでエラーが出る。あとで対応。
-            let user_id = userJson["id"].intValue  // 悩んだところ。
+            let userId = userJson["id"].intValue  // 悩んだところ。
             
-            let owner = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)  // 初回ユーザ登録完了
+            let owner = UserDefaults.standard
+            owner.set(userJson["id"].intValue, forKey: "userId")
+            owner.set(userJson["name"].stringValue, forKey: "userName")
+            
+            debugPrint(owner.string(forKey: "userId"))
+            debugPrint(owner.string(forKey: "userName"))
+            
+            
+            
+//            let owner1 = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)  // 初回ユーザ登録完了
 //            userDefaults.set(true, forKey: "signUp")
 //            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
             // debugPrint(owner)
+            
             
             // 画面遷移
             var storyboard: UIStoryboard = self.storyboard!

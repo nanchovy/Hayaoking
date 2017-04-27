@@ -62,7 +62,7 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルが押された時の動作。jsonでPOSTし，画面遷移とダイアログ表示。
         self.recruitId = self.names[indexPath.row]
-        debugPrint(recruitId["id"] as! Int)
+        var id =  recruitId["id"] as! Int
         
     }
     
