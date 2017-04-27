@@ -71,8 +71,10 @@ class DateViewController: UIViewController {
                 let recruitMatchingDate = MatchingDate(year: recruitYear, month: recruitMonth, day: recruitDay, hour: recruitHour, min:recruitMin)
                 var recruitMatch = NoOpponentMatching(recruitId: recruitId, applicant: "test1", matchingDate: recruitMatchingDate)
                 
-                var storyboard: UIStoryboard = self.storyboard!  // OpponentWaitingViewに画面遷移
-                var nextView = storyboard.instantiateViewController(withIdentifier: "owv")
+                
+                // OpponentWaitingViewに画面遷移
+                var storyboard: UIStoryboard = self.storyboard!
+                var nextView = storyboard.instantiateViewController(withIdentifier: "OWVC")
                 self.present(nextView, animated: true, completion: nil)
                 
       }

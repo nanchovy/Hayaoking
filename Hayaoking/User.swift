@@ -16,7 +16,7 @@ struct signUpUser {
 }
 
 struct User {
-    var user_id: Int
+    var userId: Int
     var name: String
     var win: Int
     var lose: Int
@@ -24,7 +24,7 @@ struct User {
     var score: Int
     
     init(user_id: Int, name: String, win: Int=0, lose: Int=0, draw: Int=0, score: Int=0){
-        self.user_id = user_id
+        self.userId = user_id
         self.name = name
         self.win = win
         self.lose = lose

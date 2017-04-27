@@ -36,6 +36,7 @@ class FindBattleRequestViewController: UIViewController {
     }
 
 
+
     @IBOutlet weak var titleText: UILabel!  // タイトルテキスト
     
     @IBAction func pushStartButton(_ sender: Any) {
@@ -111,7 +112,7 @@ class FindBattleRequestViewController: UIViewController {
             let owner = UserDefaults.standard
             owner.set(userJson["id"].intValue, forKey: "userId")
             owner.set(userJson["name"].stringValue, forKey: "userName")
-            
+            owner.synchronize()
             debugPrint(owner.string(forKey: "userId"))
             debugPrint(owner.string(forKey: "userName"))
             
@@ -123,11 +124,25 @@ class FindBattleRequestViewController: UIViewController {
             // debugPrint(owner)
             
             
-            // 画面遷移
-            var storyboard: UIStoryboard = self.storyboard!
-            var nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
-            self.present(nextView, animated: true, completion: nil)
             
+            
+            //　成功した時のダイアログ表示
+            let signUpCompleteAlert = UIAlertController(title: "成功", message: "登録完了しました", preferredStyle: .alert)
+            let signUpComplete = UIAlertAction(title: "OK", style: .default, handler: {
+                (action:UIAlertAction!) -> Void in
+                
+                // 画面遷移
+                var storyboard: UIStoryboard = self.storyboard!
+                var nextView = storyboard.instantiateViewController(withIdentifier: "OWVC") as! OpponentWaitingViewController
+                var owner = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)
+                debugPrint("hoge")
+                debugPrint(owner.name)
+                nextView.owner = owner
+                nextView.test = "test"
+                self.present(nextView, animated: true, completion: nil)
+            })
+            signUpCompleteAlert.addAction(signUpComplete)
+            self.present(signUpCompleteAlert, animated: true, completion: nil)
         }
 
         
@@ -135,10 +150,6 @@ class FindBattleRequestViewController: UIViewController {
         
     }
     
-//    func openNextView() -> Void {
-//        let storyboard: UIStoryboard = self.storyboard!
-//        let nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
-//        present(nextView, animated: true, completion: nil)
-//    }
+
     
 }

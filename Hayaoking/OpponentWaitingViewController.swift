@@ -11,18 +11,24 @@
 import UIKit
 
 class OpponentWaitingViewController: UIViewController {
+    
+    var owner: User?
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        debugPrint()
+//        debugPrint(owner?.userId)
+//        var userInfoText: String = "ユーザID: \(owner?.userId)"
+
         
         var showStatusLabel = UILabel()
-        showStatusLabel.text = "hoge"
+        showStatusLabel.text = "username: \(owner?.name)"
         showStatusLabel.numberOfLines = 0
         showStatusLabel.sizeToFit()
         showStatusLabel.center =  self.view.center
         self.view.addSubview(showStatusLabel)
+        
+        super.viewDidLoad()
+        
+        
 
     }
 
@@ -31,6 +37,8 @@ class OpponentWaitingViewController: UIViewController {
 
     }
     
+    
+
 
 
 }

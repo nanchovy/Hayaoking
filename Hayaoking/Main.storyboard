@@ -129,7 +129,7 @@
         <!--Opponent Waiting View Controller-->
         <scene sceneID="AbD-3A-xPi">
             <objects>
-                <viewController restorationIdentifier="owv" storyboardIdentifier="owv" id="zK6-6U-GMo" customClass="OpponentWaitingViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OWVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zK6-6U-GMo" customClass="OpponentWaitingViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xFs-mx-Qpd"/>
                         <viewControllerLayoutGuide type="bottom" id="9cb-oT-pPg"/>
@@ -219,7 +219,7 @@
         <!--Battle Standby View Controller-->
         <scene sceneID="cUl-Cx-IYZ">
             <objects>
-                <viewController storyboardIdentifier="nextView" id="98M-4x-58L" customClass="BattleStandbyViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="98M-4x-58L" customClass="BattleStandbyViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rvB-Qv-GxD"/>
                         <viewControllerLayoutGuide type="bottom" id="hDd-Mh-GyN"/>
