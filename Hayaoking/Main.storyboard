@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-83" y="137"/>
+            <point key="canvasLocation" x="191" y="-541"/>
         </scene>
         <!--Mezamashi Gamen View Controller-->
         <scene sceneID="H1a-1m-Le4">
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkI-y9-k1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="135"/>
+            <point key="canvasLocation" x="-1395" y="-231"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TST-OO-OUj">
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBR-Mt-ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2631" y="137"/>
+            <point key="canvasLocation" x="-1596" y="-1001"/>
         </scene>
         <!--Opponent Waiting View Controller-->
         <scene sceneID="AbD-3A-xPi">
@@ -143,6 +143,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUr-Bf-sKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1241.25" y="-540.84507042253517"/>
+        </scene>
+        <!--Recruit Cancel View Controller-->
+        <scene sceneID="gnI-vH-B6q">
+            <objects>
+                <viewController id="fiU-ch-dMY" customClass="RecruitCancelViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nvA-ps-tCo"/>
+                        <viewControllerLayoutGuide type="bottom" id="IhT-J3-aID"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yDN-4g-eSK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1TY-RC-nqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="-543"/>
         </scene>
         <!--Date View Controller-->
         <scene sceneID="gL9-XE-aEC">
@@ -195,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UM9-24-dPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248.75" y="133.09859154929578"/>
+            <point key="canvasLocation" x="671" y="140"/>
         </scene>
         <!--Opponent List View Controller-->
         <scene sceneID="Ldm-n9-jjM">
@@ -246,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnm-zx-2uQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564.375" y="135.21126760563379"/>
+            <point key="canvasLocation" x="-1738" y="514"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pju-Hn-PeR">
@@ -264,7 +282,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76o-zv-pO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1258.125" y="869.36619718309862"/>
+            <point key="canvasLocation" x="1061" y="869"/>
         </scene>
     </scenes>
 </document>
