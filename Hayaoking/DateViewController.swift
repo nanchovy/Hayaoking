@@ -10,10 +10,12 @@ import UIKit
 import SwiftyJSON
 import Foundation
 import Alamofire
-let testUser = "test3"
+let testUser = "user01"
 
 
 class DateViewController: UIViewController {
+    
+    var owner: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,9 @@ class DateViewController: UIViewController {
 
     @IBAction func DateApplyButton(_ sender: Any) {
         // 対戦掲示板に張り出すボタンを押した時に動く処理。自分の名前と日付をまとめpostする。responseが帰ってきたら，次の画面に移行する。
-
+        
+        
+        debugPrint(owner?.userId)
         let dateString = String(describing: RollDatePicker.date)
         //        let yearString = dateString.index(dateString.startIndex, offsetBy: 0, limitedBy: 3)  // コンパイルエラー，何故？
         let year = stringCutter(str: dateString, start:0, end:4)  // この辺のstart, endはstrをintに変換するために必要なもの。
@@ -48,7 +52,7 @@ class DateViewController: UIViewController {
 
         
         Alamofire.request("http://52.196.173.16/recruits.json", method: .post, parameters:[
-            "applicant": testUser,
+            "applicant": owner?.userId,
             "getup":
                 ["year":year,
                  "month":month,
@@ -57,7 +61,9 @@ class DateViewController: UIViewController {
                  "min":min
             ]
             ]).responseJSON{ response in
-
+                debugPrint("fuga")
+                debugPrint(response.result.value!)
+                debugPrint("piyo")
                 let responseJson = JSON(response.result.value!)
                 debugPrint(responseJson)
                 let recruitId = responseJson["id"].intValue// recruitsテーブルのid。

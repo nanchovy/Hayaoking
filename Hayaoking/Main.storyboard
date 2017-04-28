@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zK6-6U-GMo">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -147,7 +147,7 @@
         <!--Recruit Cancel View Controller-->
         <scene sceneID="gnI-vH-B6q">
             <objects>
-                <viewController id="fiU-ch-dMY" customClass="RecruitCancelViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RCVC" storyboardIdentifier="RCVC" id="fiU-ch-dMY" customClass="RecruitCancelViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nvA-ps-tCo"/>
                         <viewControllerLayoutGuide type="bottom" id="IhT-J3-aID"/>
@@ -165,7 +165,7 @@
         <!--Date View Controller-->
         <scene sceneID="gL9-XE-aEC">
             <objects>
-                <viewController id="CCp-yK-lm2" customClass="DateViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="DVC" storyboardIdentifier="DVC" id="CCp-yK-lm2" customClass="DateViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8h-08-kzD"/>
                         <viewControllerLayoutGuide type="bottom" id="CZ6-gb-PIN"/>

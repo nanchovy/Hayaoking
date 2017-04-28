@@ -31,43 +31,38 @@ class OpponentWaitingViewController: UIViewController {
         super.viewDidLoad()
         
         //ボタンを二つ作る。一つはバトルリクエストを出していない人用に，二付を選択できるボタン
-        Alamofire.request("http://52.196.173.16/users.json", method: .post, parameters:req).responseJSON{ response in
-            let userJson = JSON(response.result.value!)  // ユーザ名が被っていると，ここでエラーが出る。あとで対応。
-            let userId = userJson["id"].intValue  // 悩んだところ。
+        let recruitCheckUrl: String = "http://52.196.173.16/recruits/check/1.json"
+        debugPrint(recruitCheckUrl)
+        Alamofire.request(recruitCheckUrl).responseJSON{ response in
+            debugPrint(type(of: response.result.value!))
+            let didRecruit:Bool = response.result.value! as! Bool
             
-            let owner = UserDefaults.standard
-            owner.set(userJson["id"].intValue, forKey: "userId")
-            owner.set(userJson["name"].stringValue, forKey: "userName")
-            owner.synchronize()
-            debugPrint(owner.string(forKey: "userId"))
-            debugPrint(owner.string(forKey: "userName"))
-            
-            
-            
-            //            let owner1 = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)  // 初回ユーザ登録完了
-            //            userDefaults.set(true, forKey: "signUp")
-            //            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
-            // debugPrint(owner)
-            
-            
-            
-            
-            //　成功した時のダイアログ表示
-//            let signUpCompleteAlert = UIAlertController(title: "成功", message: "登録完了しました", preferredStyle: .alert)
-//            let signUpComplete = UIAlertAction(title: "OK", style: .default, handler: {
-//                (action:UIAlertAction!) -> Void in
-//                
-//                // 画面遷移
-//                var storyboard: UIStoryboard = self.storyboard!
-//                var nextView = storyboard.instantiateViewController(withIdentifier: "OWVC") as! OpponentWaitingViewController
-//                var owner = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)
-//                debugPrint("hoge")
-//                debugPrint(owner.name)
-//                nextView.owner = owner
-//                self.present(nextView, animated: true, completion: nil)
-//            })
-//            signUpCompleteAlert.addAction(signUpComplete)
-//            self.present(signUpCompleteAlert, animated: true, completion: nil)
+            if didRecruit == true {
+                // すでにRecruit実行済みなので，RecruitCancellViewへのボタンを作成する
+                let button = UIButton()
+                button.frame = CGRect(x:60, y:300, width: 230, height:100)
+                button.backgroundColor = UIColor.blue
+                button.setTitle("対戦申請を確認する", for: .normal)
+                button.addTarget(self, action: #selector(OpponentWaitingViewController.toRCVC(sender: )), for: .touchUpInside)
+
+                self.view.addSubview(button)
+                
+                
+                debugPrint("Success")
+//                let toCancelButton = UIButton()
+//                toCancelButton.setTitle("申し込み時間の確認", for: .normal)
+//                toCancelButton.setTitleColor(UIColor.blue, for: .normal)
+//                toCancelButton.layer.masksToBounds = true
+////                let posXofCB: CGFloat = self.view.frame.width/2
+//                toCancelButton.layer.position = CGPoint(x: 150, y: 250)
+//                self.view.addSubview(toCancelButton)
+                
+                
+                
+                
+            } else {
+                // まだRecruitを作っていないので，DateViewController，NavigationControllerへのボタンを作成する
+            }
         }
         
         
@@ -77,14 +72,16 @@ class OpponentWaitingViewController: UIViewController {
         
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+    
+    func toRCVC(sender: UIButton) {
+        // 画面遷移，RecruitCancelViewControllerへ
+        var storyboard: UIStoryboard = self.storyboard!
+        var nextView = storyboard.instantiateViewController(withIdentifier: "RCVC") as! RecruitCancelViewController
+        self.present(nextView, animated: true, completion: nil)
+        
     }
-    
-    
-
-
-
 }
+
+
+
+
