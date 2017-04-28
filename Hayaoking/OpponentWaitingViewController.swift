@@ -31,6 +31,8 @@ class OpponentWaitingViewController: UIViewController {
         super.viewDidLoad()
         
         //ボタンを二つ作る。一つはバトルリクエストを出していない人用に，二付を選択できるボタン
+        
+        //　申し込みをしているかの確認
         let recruitCheckUrl: String = "http://52.196.173.16/recruits/check/5.json"
         debugPrint(recruitCheckUrl)
         Alamofire.request(recruitCheckUrl).responseJSON{ response in
@@ -46,14 +48,8 @@ class OpponentWaitingViewController: UIViewController {
                 button.addTarget(self, action: #selector(OpponentWaitingViewController.toRCVC(sender: )), for: .touchUpInside)
 
                 self.view.addSubview(button)
-                
-                
-                debugPrint("Success")
+//                debugPrint("Success")
 
-                
-                
-                
-                
             } else {
                 // まだRecruitを作っていないので，DateViewController，NavigationControllerへのボタンを作成する
                 let button1 = UIButton()
@@ -85,6 +81,7 @@ class OpponentWaitingViewController: UIViewController {
         // 画面遷移，RecruitCancelViewControllerへ
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "RCVC") as! RecruitCancelViewController
+        nextView.owner = owner
         self.present(nextView, animated: true, completion: nil)
     }
 
@@ -92,6 +89,7 @@ class OpponentWaitingViewController: UIViewController {
         // 画面遷移，DateViewControllerへ
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "DVC") as! DateViewController
+        nextView.owner = owner
         self.present(nextView, animated: true, completion: nil)
     }
     
@@ -99,6 +97,7 @@ class OpponentWaitingViewController: UIViewController {
         // 画面遷移，OpponentListViewControllerへ
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "OLVC") as! OpponentListViewController
+        nextView.owner = owner
         self.present(nextView, animated: true, completion: nil)
     }
 

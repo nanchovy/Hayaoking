@@ -10,7 +10,6 @@ import UIKit
 import SwiftyJSON
 import Foundation
 import Alamofire
-let testUser = "user01"
 
 
 class DateViewController: UIViewController {

@@ -11,6 +11,8 @@ import Alamofire
 import SwiftyJSON
 
 class OpponentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var owner: User?
     var names: [[String: Any?]] = []
     let table = UITableView()
     var recruitId: [String: Any] = [:]

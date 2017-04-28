@@ -9,6 +9,8 @@
 import UIKit
 
 class RecruitCancelViewController: UIViewController {
+    
+    var owner: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()

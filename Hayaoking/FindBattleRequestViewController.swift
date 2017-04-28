@@ -132,12 +132,12 @@ class FindBattleRequestViewController: UIViewController {
                 (action:UIAlertAction!) -> Void in
                 
                 // 画面遷移
-                var storyboard: UIStoryboard = self.storyboard!
-                var nextView = storyboard.instantiateViewController(withIdentifier: "DVC") as! DateViewController
-                var owner = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)
+                let storyboard: UIStoryboard = self.storyboard!
+                let nextView = storyboard.instantiateViewController(withIdentifier: "OWVC") as! OpponentWaitingViewController
+                let owner = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)
                 debugPrint("hoge")
                 debugPrint(owner.name)
-//                nextView.owner = owner
+                nextView.owner = owner
                 self.present(nextView, animated: true, completion: nil)
             })
             signUpCompleteAlert.addAction(signUpComplete)
