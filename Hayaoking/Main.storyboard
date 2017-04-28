@@ -218,7 +218,7 @@
         <!--Opponent List View Controller-->
         <scene sceneID="Ldm-n9-jjM">
             <objects>
-                <viewController id="AmY-RW-pAG" customClass="OpponentListViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="OLVC" storyboardIdentifier="OLVC" id="AmY-RW-pAG" customClass="OpponentListViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8uV-Yr-Yqj"/>
                         <viewControllerLayoutGuide type="bottom" id="Pm7-Qw-yjA"/>

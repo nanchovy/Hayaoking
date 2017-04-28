@@ -31,7 +31,7 @@ class OpponentWaitingViewController: UIViewController {
         super.viewDidLoad()
         
         //ボタンを二つ作る。一つはバトルリクエストを出していない人用に，二付を選択できるボタン
-        let recruitCheckUrl: String = "http://52.196.173.16/recruits/check/1.json"
+        let recruitCheckUrl: String = "http://52.196.173.16/recruits/check/5.json"
         debugPrint(recruitCheckUrl)
         Alamofire.request(recruitCheckUrl).responseJSON{ response in
             debugPrint(type(of: response.result.value!))
@@ -49,19 +49,27 @@ class OpponentWaitingViewController: UIViewController {
                 
                 
                 debugPrint("Success")
-//                let toCancelButton = UIButton()
-//                toCancelButton.setTitle("申し込み時間の確認", for: .normal)
-//                toCancelButton.setTitleColor(UIColor.blue, for: .normal)
-//                toCancelButton.layer.masksToBounds = true
-////                let posXofCB: CGFloat = self.view.frame.width/2
-//                toCancelButton.layer.position = CGPoint(x: 150, y: 250)
-//                self.view.addSubview(toCancelButton)
+
                 
                 
                 
                 
             } else {
                 // まだRecruitを作っていないので，DateViewController，NavigationControllerへのボタンを作成する
+                let button1 = UIButton()
+                button1.frame = CGRect(x:60, y:300, width: 230, height:70)
+                button1.backgroundColor = UIColor.blue
+                button1.setTitle("日付を選択して申し込む", for: .normal)
+                button1.addTarget(self, action: #selector(OpponentWaitingViewController.toDVC(sender: )), for: .touchUpInside)
+                self.view.addSubview(button1)
+                
+                let button2 = UIButton()
+                button2.frame = CGRect(x:60, y:450, width: 230, height:70)
+                button2.backgroundColor = UIColor.blue
+                button2.setTitle("対戦申し込みを見る", for: .normal)
+                button2.addTarget(self, action: #selector(OpponentWaitingViewController.toOLVC(sender: )), for: .touchUpInside)
+                
+                self.view.addSubview(button2)
             }
         }
         
@@ -75,13 +83,25 @@ class OpponentWaitingViewController: UIViewController {
     
     func toRCVC(sender: UIButton) {
         // 画面遷移，RecruitCancelViewControllerへ
-        var storyboard: UIStoryboard = self.storyboard!
-        var nextView = storyboard.instantiateViewController(withIdentifier: "RCVC") as! RecruitCancelViewController
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "RCVC") as! RecruitCancelViewController
         self.present(nextView, animated: true, completion: nil)
-        
     }
+
+    func toDVC(sender: UIButton) {
+        // 画面遷移，DateViewControllerへ
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "DVC") as! DateViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
+    func toOLVC(sender: UIButton) {
+        // 画面遷移，OpponentListViewControllerへ
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "OLVC") as! OpponentListViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
+
+
+
 }
-
-
-
-
