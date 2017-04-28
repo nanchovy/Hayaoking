@@ -15,10 +15,17 @@ import Alamofire
 class OpponentWaitingViewController: UIViewController {
     
     var owner: User?
+    var recruitDate: MatchingDate?
+    var matching: NoOpponentMatching?
 
     override func viewDidLoad() {
-//        debugPrint(owner?.userId)
-//        var userInfoText: String = "ユーザID: \(owner?.userId)"
+        
+        
+        
+//        debugPrint(urlMaker(user: owner!))
+        debugPrint(owner)
+        debugPrint("ownerAtOWVC")
+
 
         var userInfoText = "ユーザID:\(owner?.userId)\nユーザ名:\(owner?.name)\nwin:\(owner?.win)\nlose:\(owner?.lose)\ndraw:\(owner?.draw)\nwin:\(owner?.score)\n"
         var showStatusLabel = UILabel()
@@ -33,10 +40,14 @@ class OpponentWaitingViewController: UIViewController {
         //ボタンを二つ作る。一つはバトルリクエストを出していない人用に，二付を選択できるボタン
         
         //　申し込みをしているかの確認
-        let recruitCheckUrl: String = "http://52.196.173.16/recruits/check/5.json"
+//        let recruitCheckUrl: String = "http://52.196.173.16/recruits/check/"+"\(owner!.userId)"+".json"
+        
+        debugPrint(owner)
+        debugPrint("↑owner, ↓recruitCheckUrl")
+        let recruitCheckUrl: String = urlMaker(user: owner!)
         debugPrint(recruitCheckUrl)
         Alamofire.request(recruitCheckUrl).responseJSON{ response in
-            debugPrint(type(of: response.result.value!))
+            debugPrint(response.result.value!)
             let didRecruit:Bool = response.result.value! as! Bool
             
             if didRecruit == true {
@@ -101,6 +112,9 @@ class OpponentWaitingViewController: UIViewController {
         self.present(nextView, animated: true, completion: nil)
     }
 
-
+    func urlMaker(user: User) -> String {
+        let url = "http://52.196.173.16/recruits/check/\(user.userId).json"
+        return url
+    }
 
 }

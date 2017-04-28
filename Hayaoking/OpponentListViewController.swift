@@ -65,6 +65,7 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
         // セルが押された時の動作。jsonでPOSTし，画面遷移とダイアログ表示。
         self.recruitId = self.names[indexPath.row]
         var id =  recruitId["id"] as! Int
+        debugPrint(self.recruitId)
         
     }
     

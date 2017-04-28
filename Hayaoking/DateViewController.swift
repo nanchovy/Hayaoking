@@ -15,8 +15,11 @@ import Alamofire
 class DateViewController: UIViewController {
     
     var owner: User?
+    var recruitMatch: NoOpponentMatching?
 
     override func viewDidLoad() {
+        debugPrint(owner?.userId)
+        debugPrint("viewdidload")
         super.viewDidLoad()
     }
 
@@ -33,7 +36,7 @@ class DateViewController: UIViewController {
         // 対戦掲示板に張り出すボタンを押した時に動く処理。自分の名前と日付をまとめpostする。responseが帰ってきたら，次の画面に移行する。
         
         
-        debugPrint(owner?.userId)
+        
         let dateString = String(describing: RollDatePicker.date)
         //        let yearString = dateString.index(dateString.startIndex, offsetBy: 0, limitedBy: 3)  // コンパイルエラー，何故？
         let year = stringCutter(str: dateString, start:0, end:4)  // この辺のstart, endはstrをintに変換するために必要なもの。
@@ -49,9 +52,11 @@ class DateViewController: UIViewController {
         debugPrint(hour)
         debugPrint(min)
 
+        debugPrint(owner?.name)
+        debugPrint("↑username")
         
         Alamofire.request("http://52.196.173.16/recruits.json", method: .post, parameters:[
-            "applicant": owner?.userId,
+            "applicant": owner!.name,
             "getup":
                 ["year":year,
                  "month":month,
@@ -60,9 +65,7 @@ class DateViewController: UIViewController {
                  "min":min
             ]
             ]).responseJSON{ response in
-                debugPrint("fuga")
-                debugPrint(response.result.value!)
-                debugPrint("piyo")
+                debugPrint(response)
                 let responseJson = JSON(response.result.value!)
                 debugPrint(responseJson)
                 let recruitId = responseJson["id"].intValue// recruitsテーブルのid。
@@ -74,15 +77,17 @@ class DateViewController: UIViewController {
                 let recruitMin = self.stringCutter(str: recruitGetup, start:14, end:16)
                 
                 let recruitMatchingDate = MatchingDate(year: recruitYear, month: recruitMonth, day: recruitDay, hour: recruitHour, min:recruitMin)
-                var recruitMatch = NoOpponentMatching(recruitId: recruitId, applicant: "test1", matchingDate: recruitMatchingDate)
+                self.recruitMatch = NoOpponentMatching(recruitId: recruitId, applicant: self.owner!.name, matchingDate: recruitMatchingDate)
                 
                 
+                // DateViewControllerで作ったmatchingをOWVCに送る
+                let storyboard: UIStoryboard = self.storyboard!
+                let previousView = storyboard.instantiateViewController(withIdentifier: "OWVC") as! OpponentWaitingViewController
                 
+                previousView.matching = self.recruitMatch
                 
                 // OpponentWaitingViewに画面遷移
-                var storyboard: UIStoryboard = self.storyboard!
-                var nextView = storyboard.instantiateViewController(withIdentifier: "OWVC")
-                self.present(nextView, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
                 
       }
         
