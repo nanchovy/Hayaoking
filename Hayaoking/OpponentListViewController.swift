@@ -82,6 +82,7 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
                     let responseJson = JSON(response.result.value!)
                     debugPrint(responseJson)
                     
+                    var id = responseJson["id"].intValue
                     var applicant = responseJson["applicant"].stringValue
                     var authorizer = responseJson["authorizer"].stringValue
                     
@@ -93,7 +94,7 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
                     let recruitMin: Int = self.stringCutter(str: matchingDateString, start:14, end:16)
                     var matchingDate = MatchingDate(year: recruitYear, month: recruitMonth, day: recruitDay, hour: recruitHour, min: recruitMin)
                     
-                    let matching = Matching(applicant: applicant, authorizer: authorizer, matchingDate: matchingDate)
+                    let matching = Matching(id: id, applicant: applicant, authorizer: authorizer, matchingDate: matchingDate)
                     
                     
                     let storyboard: UIStoryboard = self.storyboard!

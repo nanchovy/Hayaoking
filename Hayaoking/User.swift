@@ -56,11 +56,13 @@ struct MatchingDate {
 
 
 struct Matching {
+    var id: Int
     var applicant: String
     var authorizer: String
     var matchingDate: MatchingDate
     
-    init(applicant: String, authorizer: String, matchingDate: MatchingDate) {
+    init(id: Int, applicant: String, authorizer: String, matchingDate: MatchingDate) {
+        self.id = id
         self.applicant = applicant
         self.authorizer = authorizer
         self.matchingDate = matchingDate
