@@ -30,8 +30,8 @@ class HayaokiButtonViewController: UIViewController {
 
     @IBAction func HayaokiButton(_ sender: Any) {
         Alamofire.request("http://52.196.173.16/battles/wake.json", method: .post, parameters:[
-            "id": 9,
-            "winner_id": 12
+            "id": matching!.id,
+            "winner_id": owner!.userId
             ]).responseJSON{ response in
                 let responseJson = JSON(response.result.value!)
                 debugPrint(responseJson)
@@ -39,13 +39,16 @@ class HayaokiButtonViewController: UIViewController {
                 let ownerPos = self.appOrAuth(user: self.owner!, matching: self.matching!)
                 if result == ownerPos {
                     // ownerの勝利
-                    
+                    debugPrint("かち")
                 } else if abs(result) == abs(ownerPos) {
                     // ownerの負け
+                    debugPrint("負け")
                 } else {
                     // 引き分け
+                    debugPrint("引き分け")
                 }
                 
+                debugPrint("if抜けた")
                 
                 
                 

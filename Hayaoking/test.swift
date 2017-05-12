@@ -9,10 +9,10 @@
 
 import Foundation
 
-let sampleMatching = Matching(applicant: "okYama", authorizer: "Yakuza", matchingDate: sampleMatchingDate)
+//let sampleMatching = Matching(applicant: "okYama", authorizer: "Yakuza", matchingDate: sampleMatchingDate)
 // これはapplicant:"okYama"が既にrecruitsにあるため，エラーが起きる
 
-let sampleMatchingJSON = sampleMatching.toJson()
+//let sampleMatchingJSON = sampleMatching.toJson()
 
 let sampleMatchingDate = MatchingDate(year: 2017, month: 4, day: 28, hour: 21, min:00)
 
