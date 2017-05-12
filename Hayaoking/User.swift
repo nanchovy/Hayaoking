@@ -64,11 +64,6 @@ struct Matching {
         self.applicant = applicant
         self.authorizer = authorizer
         self.matchingDate = matchingDate
-//        self.matchingDate.year = year
-//        self.matchingDate.month = month
-//        self.matchingDate.day = day
-//        self.matchingDate.hour = hour
-        
     }
     
     func toJson() -> [String: Any] {

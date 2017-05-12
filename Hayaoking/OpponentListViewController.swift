@@ -79,9 +79,29 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
                 "id":id,
                 "authorizer": self.owner!.name
                 ]).responseJSON{ response in
-                    debugPrint(response)
                     let responseJson = JSON(response.result.value!)
                     debugPrint(responseJson)
+                    
+                    var applicant = responseJson["applicant"].stringValue
+                    var authorizer = responseJson["authorizer"].stringValue
+                    
+                    let matchingDateString = responseJson["getup"].stringValue
+                    let recruitYear: Int = self.stringCutter(str: matchingDateString, start:0, end:4)  // この辺のstart, endはstrをintに変換するために必要なもの。
+                    let recruitMonth: Int = self.stringCutter(str: matchingDateString, start:5, end:7)
+                    let recruitDay: Int = self.stringCutter(str: matchingDateString, start:8, end:10)
+                    let recruitHour: Int = self.stringCutter(str: matchingDateString, start:11, end:13)
+                    let recruitMin: Int = self.stringCutter(str: matchingDateString, start:14, end:16)
+                    var matchingDate = MatchingDate(year: recruitYear, month: recruitMonth, day: recruitDay, hour: recruitHour, min: recruitMin)
+                    
+                    let matching = Matching(applicant: applicant, authorizer: authorizer, matchingDate: matchingDate)
+                    
+                    
+                    let storyboard: UIStoryboard = self.storyboard!
+                    let nextView = storyboard.instantiateViewController(withIdentifier: "HBVC") as! HayaokiButtonViewController
+                    nextView.matching = matching
+                    nextView.owner = self.owner
+                    self.present(nextView, animated: true, completion: nil)
+                    
                    
                     
             }
@@ -97,6 +117,11 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
         noticeAlert.addAction(cancellAction)
         
         self.present(noticeAlert, animated: true, completion: nil)
+    }
+    
+    func stringCutter(str: String, start: Int, end: Int) -> Int {
+        let new = Int(str.substring(with: str.index(str.startIndex, offsetBy: start)..<str.index(str.startIndex, offsetBy: end)))
+        return new!
     }
 }
     

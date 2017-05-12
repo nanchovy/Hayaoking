@@ -19,6 +19,7 @@
 		6EAAA6321E7FE48F00E62B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAA6311E7FE48F00E62B77 /* ViewController.swift */; };
 		6EAAA6371E7FE48F00E62B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EAAA6361E7FE48F00E62B77 /* Assets.xcassets */; };
 		6EAAA63A1E7FE48F00E62B77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EAAA6381E7FE48F00E62B77 /* LaunchScreen.storyboard */; };
+		6EAFE5371EC5BFD3006E12FE /* HayaokiButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAFE5361EC5BFD3006E12FE /* HayaokiButtonViewController.swift */; };
 		6ECE0F1E1E8BBBB8002396D6 /* FindBattleRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */; };
 		6ED63EB61EA0E98F003DC497 /* OpponentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED63EB51EA0E98F003DC497 /* OpponentListViewController.swift */; };
 		6EECD7F91E8A5BD300E89719 /* BattleStandbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */; };
@@ -39,6 +40,7 @@
 		6EAAA6361E7FE48F00E62B77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EAAA6391E7FE48F00E62B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EAAA63B1E7FE48F00E62B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EAFE5361EC5BFD3006E12FE /* HayaokiButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HayaokiButtonViewController.swift; sourceTree = "<group>"; };
 		6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBattleRequestViewController.swift; sourceTree = "<group>"; };
 		6ED63EB51EA0E98F003DC497 /* OpponentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentListViewController.swift; sourceTree = "<group>"; };
 		6EECD7F81E8A5BD300E89719 /* BattleStandbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleStandbyViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				6E3BDD741EB0A8F8008FD221 /* Main.storyboard */,
+				6EAFE5361EC5BFD3006E12FE /* HayaokiButtonViewController.swift */,
 				6E3BDD721EB09C1C008FD221 /* OpponentWaitingViewController.swift */,
 				6E00C87F1EAC9E8A002770D2 /* DateViewController.swift */,
 				6ECE0F1D1E8BBBB8002396D6 /* FindBattleRequestViewController.swift */,
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EECD7F91E8A5BD300E89719 /* BattleStandbyViewController.swift in Sources */,
+				6EAFE5371EC5BFD3006E12FE /* HayaokiButtonViewController.swift in Sources */,
 				6E9EA2621E90DB4200C5DC1B /* OpponentSearchViewController.swift in Sources */,
 				6ED63EB61EA0E98F003DC497 /* OpponentListViewController.swift in Sources */,
 				6E3BDD711EAF7432008FD221 /* test.swift in Sources */,

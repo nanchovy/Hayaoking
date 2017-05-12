@@ -162,6 +162,34 @@
             </objects>
             <point key="canvasLocation" x="2014" y="-543"/>
         </scene>
+        <!--Hayaoki Button View Controller-->
+        <scene sceneID="hKm-5s-kb6">
+            <objects>
+                <viewController restorationIdentifier="HBVC" storyboardIdentifier="HBVC" id="1US-Fs-6Uk" customClass="HayaokiButtonViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wt2-ac-8Y3"/>
+                        <viewControllerLayoutGuide type="bottom" id="sfL-Bv-9tY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6yW-zm-bSG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPn-LB-BBP">
+                                <rect key="frame" x="113" y="411" width="94" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PUSH!!"/>
+                                <connections>
+                                    <action selector="HayaokiButton:" destination="1US-Fs-6Uk" eventType="touchUpInside" id="kR5-v9-gr4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SzP-xb-7gT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3626.25" y="-368.66197183098592"/>
+        </scene>
         <!--Date View Controller-->
         <scene sceneID="gL9-XE-aEC">
             <objects>
