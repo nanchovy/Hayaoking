@@ -66,7 +66,38 @@ class OpponentListViewController: UIViewController, UITableViewDataSource, UITab
         self.recruitId = self.names[indexPath.row]
         var id =  recruitId["id"] as! Int
         debugPrint(self.recruitId)
+        debugPrint(id)
         
+        let noticeAlert = UIAlertController(title: "確認", message: "対戦を申し込みますか？", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+                (action:UIAlertAction!) -> Void in
+            // okボタンを押した時の処理。
+            debugPrint("self.owner.name")
+            debugPrint(self.owner!.name)
+            Alamofire.request("http://52.196.173.16/recruits/accept.json", method: .post, parameters:[
+                "id":id,
+                "authorizer": self.owner!.name
+                ]).responseJSON{ response in
+                    debugPrint(response)
+                    let responseJson = JSON(response.result.value!)
+                    debugPrint(responseJson)
+                   
+                    
+            }
+        })
+        let cancellAction = UIAlertAction(title: "Cancell", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            // cancellボタンを押した時の処理。
+            self.dismiss(animated: true, completion: nil)
+            })
+        
+        
+        noticeAlert.addAction(okAction)
+        noticeAlert.addAction(cancellAction)
+        
+        self.present(noticeAlert, animated: true, completion: nil)
     }
-    
 }
+    
+
