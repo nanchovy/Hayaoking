@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Foundation
 
 class HayaokiButtonViewController: UIViewController {
     
@@ -37,30 +38,48 @@ class HayaokiButtonViewController: UIViewController {
                 debugPrint(responseJson)
                 let result = responseJson["result"].intValue
                 let ownerPos = self.appOrAuth(user: self.owner!, matching: self.matching!)
+                var resultAlert = UIAlertController()
+                
                 if result == ownerPos {
                     // ownerの勝利
                     debugPrint("かち")
+                    self.alertInputter(alert: resultAlert, title: "勝った！勝った！", message: "夕食はドン勝だ！")
                 } else if abs(result) == abs(ownerPos) {
                     // ownerの負け
                     debugPrint("負け")
+                    self.alertInputter(alert: resultAlert, title: "負け", message: "次は頑張ろう")
                 } else {
                     // 引き分け
                     debugPrint("引き分け")
+                    self.alertInputter(alert: resultAlert, title: "引き分け", message: "二人とも起きなかった")
                 }
                 
-                debugPrint("if抜けた")
-                
-                
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+                    (action:UIAlertAction!) -> Void in
+//                    let nextView = storyboard?.instantiateViewController(withIdentifier: "FBRVC") as! FindBattleRequestViewController
+//                    self.presentView(nextView, animated: true, completion: nil)
+//                let storyboard: UIStoryboard = self.storyboard!
+//                let nextView = storyboard.instantiateViewController(withIdentifier: "FBRVC") as! FindBattleRequestViewController
+                    
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                })
+                resultAlert.addAction(okAction)
+                self.present(resultAlert, animated: true, completion: nil)
                 
                 
         }
         
     }
+    
     func appOrAuth(user: User, matching: Matching) -> Int {
         if user.name == matching.authorizer {
             return -1
         } else {
             return 1
         }
+    }
+    func alertInputter(alert: UIAlertController, title: String, message: String) {
+        alert.title = title
+        alert.message = message
     }
 }

@@ -21,7 +21,7 @@ class OpponentWaitingViewController: UIViewController {
     override func viewDidLoad() {
         
         
-        
+        debugPrint("hoge, OWVC")
 //        debugPrint(urlMaker(user: owner!))
         debugPrint(owner)
         debugPrint("ownerAtOWVC")

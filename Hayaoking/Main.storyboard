@@ -13,7 +13,7 @@
         <!--Find Battle Request View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FindBattleRequestViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FBRVC" storyboardIdentifier="FBRVC" id="BYZ-38-t0r" customClass="FindBattleRequestViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUr-Bf-sKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241.25" y="-540.84507042253517"/>
+            <point key="canvasLocation" x="1328" y="-542"/>
         </scene>
         <!--Recruit Cancel View Controller-->
         <scene sceneID="gnI-vH-B6q">
