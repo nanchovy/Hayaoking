@@ -81,13 +81,15 @@ class DateViewController: UIViewController {
                 
                 
                 // DateViewControllerで作ったmatchingをOWVCに送る
-                let storyboard: UIStoryboard = self.storyboard!
-                let previousView = storyboard.instantiateViewController(withIdentifier: "OWVC") as! OpponentWaitingViewController
                 
-                previousView.matching = self.recruitMatch
+//                この操作で申請したmatchの中身を送信する。
+//                previousView.matching = self.recruitMatch
                 
                 // OpponentWaitingViewに画面遷移
-                self.dismiss(animated: true, completion: nil)
+                let storyboard: UIStoryboard = self.storyboard!
+                let nextView = storyboard.instantiateViewController(withIdentifier: "RCVC") as! RecruitCancelViewController
+                nextView.matching = self.recruitMatch
+                self.present(nextView, animated: true, completion: nil)
                 
       }
         
