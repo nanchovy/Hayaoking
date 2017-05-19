@@ -160,11 +160,17 @@
                                 <rect key="frame" x="91" y="338" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="申し込みを確認する"/>
+                                <connections>
+                                    <action selector="confirmationButton:" destination="fiU-ch-dMY" eventType="touchUpInside" id="e4Z-jm-WSh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drZ-CR-5Gu">
                                 <rect key="frame" x="68" y="401" width="184" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="申し込みをキャンセルする"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="fiU-ch-dMY" eventType="touchUpInside" id="yCz-dI-5kV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

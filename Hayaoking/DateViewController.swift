@@ -89,6 +89,7 @@ class DateViewController: UIViewController {
                 let storyboard: UIStoryboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "RCVC") as! RecruitCancelViewController
                 nextView.matching = self.recruitMatch
+                nextView.owner = self.owner
                 self.present(nextView, animated: true, completion: nil)
                 
       }
