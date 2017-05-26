@@ -21,6 +21,15 @@ class HayaokiButtonViewController: UIViewController {
         debugPrint(matching)
         debugPrint("This is HBVC")
         
+        let hayaokiTime = "GETUP!\nat\(matching!.matchingDate.hour):\(matching!.matchingDate.min)"
+        let showStatusLabel = UILabel()
+        showStatusLabel.text = hayaokiTime
+        showStatusLabel.numberOfLines = 0
+        showStatusLabel.sizeToFit()
+        showStatusLabel.center =  CGPoint(x:150, y:150)
+        self.view.addSubview(showStatusLabel)
+        
+        
 
     }
 
@@ -36,14 +45,14 @@ class HayaokiButtonViewController: UIViewController {
             ]).responseJSON{ response in
                 let responseJson = JSON(response.result.value!)
                 debugPrint(responseJson)
-                let result = responseJson["result"].intValue
+                let result = responseJson["result"].intValue  // authorizerなら-1, applicantなら1
                 let ownerPos = self.appOrAuth(user: self.owner!, matching: self.matching!)
                 var resultAlert = UIAlertController()
                 
                 if result == ownerPos {
                     // ownerの勝利
                     debugPrint("かち")
-                    self.alertInputter(alert: resultAlert, title: "勝った！勝った！", message: "夕食はドン勝だ！")
+                    self.alertInputter(alert: resultAlert, title: "勝った！勝った！", message: "おめでとう！")
                 } else if abs(result) == abs(ownerPos) {
                     // ownerの負け
                     debugPrint("負け")
@@ -57,10 +66,8 @@ class HayaokiButtonViewController: UIViewController {
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: {
                     (action:UIAlertAction!) -> Void in
 //                    let nextView = storyboard?.instantiateViewController(withIdentifier: "FBRVC") as! FindBattleRequestViewController
-//                    self.presentView(nextView, animated: true, completion: nil)
-//                let storyboard: UIStoryboard = self.storyboard!
-//                let nextView = storyboard.instantiateViewController(withIdentifier: "FBRVC") as! FindBattleRequestViewController
-                    
+//                    self.present(nextView, animated: true, completion: nil)
+                
                     self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                 })
                 resultAlert.addAction(okAction)

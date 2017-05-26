@@ -27,7 +27,7 @@ class OpponentWaitingViewController: UIViewController {
         debugPrint("ownerAtOWVC")
 
 
-        var userInfoText = "ユーザID:\(owner?.userId)\nユーザ名:\(owner?.name)\nwin:\(owner?.win)\nlose:\(owner?.lose)\ndraw:\(owner?.draw)\nwin:\(owner?.score)\n"
+        var userInfoText = "ユーザID:\(owner!.userId)\nユーザ名:\(owner!.name)\nwin:\(owner!.win)\nlose:\(owner!.lose)\ndraw:\(owner!.draw)\nwin:\(owner!.score)\n"
         var showStatusLabel = UILabel()
         showStatusLabel.text = userInfoText
         showStatusLabel.numberOfLines = 0

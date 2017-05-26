@@ -48,8 +48,7 @@ class FindBattleRequestViewController: UIViewController {
             let signUpAlert = UIAlertController(title: "初回登録", message: "ユーザ名を入力してください", preferredStyle: .alert)
             // ユーザ登録のためのurl
             
-            
-            titleText.text = "HOGE2"  //
+
             
             
             // テキストフィールドを追加
