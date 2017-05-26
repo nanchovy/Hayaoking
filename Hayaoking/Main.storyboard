@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早起きゲーム：タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYy-dv-qj9">
-                                <rect key="frame" x="63" y="70" width="194" height="20.5"/>
+                                <rect key="frame" x="63" y="70" width="194" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="194" id="2aa-sa-xUV"/>
                                     <constraint firstAttribute="height" constant="20.5" id="CJr-YF-IPB"/>
@@ -235,8 +235,8 @@
                                     <!--2017-03-20 15:55:31 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザ検索できるリスト" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8c-se-Z9R">
-                                <rect key="frame" x="65" y="47" width="191" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="明日は何時に起きますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8c-se-Z9R">
+                                <rect key="frame" x="56" y="115" width="208" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -248,6 +248,14 @@
                                 <state key="normal" title="対戦相手を指定する"/>
                                 <connections>
                                     <action selector="DateApplyButton:" destination="CCp-yK-lm2" eventType="touchUpInside" id="Unn-HR-9fQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jJ-zj-IDx">
+                                <rect key="frame" x="16" y="12" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backButton:" destination="CCp-yK-lm2" eventType="touchUpInside" id="V1i-BL-46c"/>
                                 </connections>
                             </button>
                         </subviews>

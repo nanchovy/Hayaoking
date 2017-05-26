@@ -55,11 +55,23 @@ class RecruitCancelViewController: UIViewController {
     }
     @IBAction func confirmationButton(_ sender: Any) {
         debugPrint("Push C Button")
-        let req = ["id": matching!.recruitId, "applicant_id": owner!.userId]
-        print(req)
-        Alamofire.request("http://52.196.173.16/recruits/show.json", method: .post, parameters: req).responseJSON{ response in
+        debugPrint(type(of: matching!.recruitId))
+//        "id": matching!.recruitId,
+//        "applicant_id": owner!.userId
+        Alamofire.request("http://52.196.173.16/recruits/show.json", method: .post, parameters:[
+            "id": matching!.recruitId,
+            "applicant_id": owner!.userId
+            ]).responseJSON{ response in
             debugPrint("do start")
+            debugPrint(response.result.value)
             guard let value = response.result.value else {
+                // 対戦承認前
+                let cancelAlert = UIAlertController()
+                self.alertInputter(alert: cancelAlert, title: "未受領", message: "申し込みは来ていないようです。")
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+                    (action:UIAlertAction!) -> Void in})
+                cancelAlert.addAction(okAction)
+                self.present(cancelAlert, animated: true, completion: nil)
                 return
             }
             let userJson = JSON(value)
