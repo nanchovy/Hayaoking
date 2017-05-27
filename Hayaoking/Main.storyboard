@@ -56,41 +56,6 @@
             </objects>
             <point key="canvasLocation" x="191" y="-541"/>
         </scene>
-        <!--Mezamashi Gamen View Controller-->
-        <scene sceneID="H1a-1m-Le4">
-            <objects>
-                <viewController id="htu-SF-7MP" customClass="MezamashiGamenViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eMd-lW-Wwj"/>
-                        <viewControllerLayoutGuide type="bottom" id="CFW-LH-NQz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="H5d-Z2-Bf6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d45-yc-5zk">
-                                <rect key="frame" x="94" y="387" width="132" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="目覚ましを止める"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMH-9O-5P2">
-                                <rect key="frame" x="139" y="164" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="timeText" destination="WMH-9O-5P2" id="HQL-bW-NHZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zkI-y9-k1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1598" y="-367"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="TST-OO-OUj">
             <objects>
@@ -279,38 +244,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QP-DW-ipf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2255.625" y="869.36619718309862"/>
-        </scene>
-        <!--Battle Standby View Controller-->
-        <scene sceneID="cUl-Cx-IYZ">
-            <objects>
-                <viewController id="98M-4x-58L" customClass="BattleStandbyViewController" customModule="Hayaoking" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rvB-Qv-GxD"/>
-                        <viewControllerLayoutGuide type="bottom" id="hDd-Mh-GyN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3K2-I0-IyN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="対戦待機画面。対戦申し込みがあればここに表示される。下のボタンから対戦申し込みをすることができる" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzZ-Nf-5xj">
-                                <rect key="frame" x="52" y="-27" width="217" height="156"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocb-7f-6fD">
-                                <rect key="frame" x="107" y="518" width="108" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="対戦を申し込む"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cnm-zx-2uQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1598" y="263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pju-Hn-PeR">
