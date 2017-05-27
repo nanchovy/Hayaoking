@@ -26,26 +26,7 @@ class RecruitCancelViewController: UIViewController {
         showStatusLabel.sizeToFit()
         showStatusLabel.center =  CGPoint(x:150, y:150)
         self.view.addSubview(showStatusLabel)
-        
-        debugPrint("owner.userId")
-        debugPrint(owner?.userId)
-        debugPrint("matching.recruitId")
-        debugPrint(matching?.recruitId)
-        
-//        let button1 = UIButton()
-//        button1.frame = CGRect(x:60, y:300, width: 230, height:70)
-//        button1.backgroundColor = UIColor.blue
-//        button1.setTitle("日付を選択して申し込む", for: .normal)
-//        button1.addTarget(self, action: #selector(OpponentWaitingViewController.toDVC(sender: )), for: .touchUpInside)
-//        self.view.addSubview(button1)
-//        
-//        let button2 = UIButton()
-//        button2.frame = CGRect(x:60, y:450, width: 230, height:70)
-//        button2.backgroundColor = UIColor.blue
-//        button2.setTitle("対戦申し込みを見る", for: .normal)
-//        button2.addTarget(self, action: #selector(OpponentWaitingViewController.toOLVC(sender: )), for: .touchUpInside)
-//        
-//        self.view.addSubview(button2)
+    
         
     }
 
@@ -56,8 +37,6 @@ class RecruitCancelViewController: UIViewController {
     @IBAction func confirmationButton(_ sender: Any) {
         debugPrint("Push C Button")
         debugPrint(type(of: matching!.recruitId))
-//        "id": matching!.recruitId,
-//        "applicant_id": owner!.userId
         Alamofire.request("http://52.196.173.16/recruits/show.json", method: .post, parameters:[
             "id": matching!.recruitId,
             "applicant_id": owner!.userId
@@ -90,7 +69,6 @@ class RecruitCancelViewController: UIViewController {
             resultAlert.addAction(okAction)
             self.present(resultAlert, animated: true, completion: nil)
             // userJsonが存在しなかったので，alertの表示のみ
-            debugPrint("catchした")
         }
     }
 
@@ -100,12 +78,10 @@ class RecruitCancelViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
-            debugPrint("push cancel button")
             let url = "http://52.196.173.16/recruits/\(self.matching!.recruitId).json"
             debugPrint(url)
             
             Alamofire.request(url, method: .delete)
-            debugPrint("deleted")
             
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             

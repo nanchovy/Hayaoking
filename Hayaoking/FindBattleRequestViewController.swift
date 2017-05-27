@@ -22,17 +22,11 @@ class FindBattleRequestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-// この下のコードはこのままで動くので参考のために置いておく。
-//        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
-//            .responseJSON{ response in
-//                debugPrint(response)
-//            }
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
@@ -43,14 +37,9 @@ class FindBattleRequestViewController: UIViewController {
         // 初回のボタンクリックでは，ユーザ名を入力させるダイアログを表示する。
         // 二回目以降では，バトルのリクエストがあるかを確認する。
         if UserDefaults.standard.bool(forKey: "signUp") == false {
-            titleText.text = "HOGE"
             // 初回，ユーザ名を入力させ，登録する処理
             let signUpAlert = UIAlertController(title: "初回登録", message: "ユーザ名を入力してください", preferredStyle: .alert)
-            // ユーザ登録のためのurl
-            
 
-            
-            
             // テキストフィールドを追加
             signUpAlert.addTextField(configurationHandler: {(userNametextField: UITextField!) -> Void in
                 userNametextField.placeholder = "ユーザ名"
@@ -58,7 +47,6 @@ class FindBattleRequestViewController: UIViewController {
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: {
                     (action:UIAlertAction!) -> Void in
                     let userName = userNametextField.text
-                    // この中にOKボタンを押された時の処理を記述する
                     self.registerUserName(inputtedUserName: userName!)
                 })
                 signUpAlert.addAction(okAction)
@@ -66,22 +54,11 @@ class FindBattleRequestViewController: UIViewController {
                 
                 })
             
-            // OKボタンの設定
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
-//                (action:UIAlertAction!) -> Void in
-//                // この中にOKボタンを押された時の処理を記述する
-//                registerUserName(userName: userName)
-//            })
-//            signUpAlert.addAction(okAction)
-            
             
             
             // アラートを画面に表示
             self.present(signUpAlert, animated: true, completion: nil)
-            
-//            Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
-//                .responseJSON{ response in debugPrint(response)}
-            
+
             
             
             
@@ -114,15 +91,6 @@ class FindBattleRequestViewController: UIViewController {
             owner.synchronize()
             debugPrint(owner.string(forKey: "userId"))
             debugPrint(owner.string(forKey: "userName"))
-            
-            
-            
-//            let owner1 = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)  // 初回ユーザ登録完了
-//            userDefaults.set(true, forKey: "signUp")
-//            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
-            // debugPrint(owner)
-            
-            
             
             
             //　成功した時のダイアログ表示

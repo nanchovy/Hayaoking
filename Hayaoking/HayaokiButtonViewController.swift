@@ -70,8 +70,6 @@ class HayaokiButtonViewController: UIViewController {
                 
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: {
                     (action:UIAlertAction!) -> Void in
-//                    let nextView = storyboard?.instantiateViewController(withIdentifier: "FBRVC") as! FindBattleRequestViewController
-//                    self.present(nextView, animated: true, completion: nil)
                 
                     self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                 })

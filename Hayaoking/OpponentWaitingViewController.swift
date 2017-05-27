@@ -37,17 +37,9 @@ class OpponentWaitingViewController: UIViewController {
         
         super.viewDidLoad()
         
-        //ボタンを二つ作る。一つはバトルリクエストを出していない人用に，二付を選択できるボタン
         
-        //　申し込みをしているかの確認
-//        let recruitCheckUrl: String = "http://52.196.173.16/recruits/check/"+"\(owner!.userId)"+".json"
-        
-        debugPrint(owner)
-        debugPrint("↑owner, ↓recruitCheckUrl")
         let recruitCheckUrl: String = urlMaker(user: owner!)
-        debugPrint(recruitCheckUrl)
         Alamofire.request(recruitCheckUrl).responseJSON{ response in
-            debugPrint(response.result.value!)
             let didRecruit:Bool = response.result.value! as! Bool
             
             if didRecruit == true {
@@ -59,7 +51,6 @@ class OpponentWaitingViewController: UIViewController {
                 button.addTarget(self, action: #selector(OpponentWaitingViewController.toRCVC(sender: )), for: .touchUpInside)
 
                 self.view.addSubview(button)
-//                debugPrint("Success")
 
             } else {
                 // まだRecruitを作っていないので，DateViewController，NavigationControllerへのボタンを作成する

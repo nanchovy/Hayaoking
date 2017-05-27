@@ -38,7 +38,6 @@ class DateViewController: UIViewController {
         
         
         let dateString = String(describing: RollDatePicker.date)
-        //        let yearString = dateString.index(dateString.startIndex, offsetBy: 0, limitedBy: 3)  // コンパイルエラー，何故？
         let year = stringCutter(str: dateString, start:0, end:4)  // この辺のstart, endはstrをintに変換するために必要なもの。
         let month = stringCutter(str: dateString, start:5, end:7)
         let day = stringCutter(str: dateString, start:8, end:10)
@@ -79,11 +78,6 @@ class DateViewController: UIViewController {
                 let recruitMatchingDate = MatchingDate(year: recruitYear, month: recruitMonth, day: recruitDay, hour: recruitHour, min:recruitMin)
                 self.recruitMatch = NoOpponentMatching(recruitId: recruitId, applicant: self.owner!.name, matchingDate: recruitMatchingDate)
                 
-                
-                // DateViewControllerで作ったmatchingをOWVCに送る
-                
-//                この操作で申請したmatchの中身を送信する。
-//                previousView.matching = self.recruitMatch
                 
                 // OpponentWaitingViewに画面遷移
                 let storyboard: UIStoryboard = self.storyboard!
