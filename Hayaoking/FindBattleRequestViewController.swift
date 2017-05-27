@@ -23,31 +23,21 @@ class FindBattleRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // let userInfo = ["name": "test1"]
-        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters: ["name": "test1"])
-        
-        
-        // Do any additional setup after loading the view.
+// この下のコードはこのままで動くので参考のために置いておく。
+//        Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
+//            .responseJSON{ response in
+//                debugPrint(response)
+//            }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
 
     @IBOutlet weak var titleText: UILabel!  // タイトルテキスト
-    let userdefaults = UserDefaults.standard
     
     @IBAction func pushStartButton(_ sender: Any) {
         // 初回のボタンクリックでは，ユーザ名を入力させるダイアログを表示する。
@@ -58,26 +48,44 @@ class FindBattleRequestViewController: UIViewController {
             let signUpAlert = UIAlertController(title: "初回登録", message: "ユーザ名を入力してください", preferredStyle: .alert)
             // ユーザ登録のためのurl
             
-            
-            titleText.text = "HOGE2"  //
-            
-            // OKボタンの設定
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
-                (action:UIAlertAction!) -> Void in})
-            signUpAlert.addAction(okAction)
+
             
             
             // テキストフィールドを追加
-            signUpAlert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
-                textField.placeholder = "ユーザ名"
-
+            signUpAlert.addTextField(configurationHandler: {(userNametextField: UITextField!) -> Void in
+                userNametextField.placeholder = "ユーザ名"
+ 
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+                    (action:UIAlertAction!) -> Void in
+                    let userName = userNametextField.text
+                    // この中にOKボタンを押された時の処理を記述する
+                    self.registerUserName(inputtedUserName: userName!)
+                })
+                signUpAlert.addAction(okAction)
 
                 
-                
-            })
+                })
+            
+            // OKボタンの設定
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+//                (action:UIAlertAction!) -> Void in
+//                // この中にOKボタンを押された時の処理を記述する
+//                registerUserName(userName: userName)
+//            })
+//            signUpAlert.addAction(okAction)
+            
+            
             
             // アラートを画面に表示
             self.present(signUpAlert, animated: true, completion: nil)
+            
+//            Alamofire.request("http://localhost:3000/users.json", method: .post, parameters:req)
+//                .responseJSON{ response in debugPrint(response)}
+            
+            
+            
+            
+            
             
             
 
@@ -92,6 +100,54 @@ class FindBattleRequestViewController: UIViewController {
 
     }
     
+    func registerUserName(inputtedUserName: String) -> Void {
+        // 入力されたユーザ名の登録をリクエストとして送る関数。成功したら画面遷移
+        let req = ["name":inputtedUserName]
+        debugPrint(req)
+        Alamofire.request("http://52.196.173.16/users.json", method: .post, parameters:req).responseJSON{ response in
+            let userJson = JSON(response.result.value!)  // ユーザ名が被っていると，ここでエラーが出る。あとで対応。
+            let userId = userJson["id"].intValue  // 悩んだところ。
+            
+            let owner = UserDefaults.standard
+            owner.set(userJson["id"].intValue, forKey: "userId")
+            owner.set(userJson["name"].stringValue, forKey: "userName")
+            owner.synchronize()
+            debugPrint(owner.string(forKey: "userId"))
+            debugPrint(owner.string(forKey: "userName"))
+            
+            
+            
+//            let owner1 = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)  // 初回ユーザ登録完了
+//            userDefaults.set(true, forKey: "signUp")
+//            debugPrint(userDefaults)  // 初回ユーザ登録が終わったので，signUpをtrueにする
+            // debugPrint(owner)
+            
+            
+            
+            
+            //　成功した時のダイアログ表示
+            let signUpCompleteAlert = UIAlertController(title: "成功", message: "登録完了しました", preferredStyle: .alert)
+            let signUpComplete = UIAlertAction(title: "OK", style: .default, handler: {
+                (action:UIAlertAction!) -> Void in
+                
+                // 画面遷移
+                let storyboard: UIStoryboard = self.storyboard!
+                let nextView = storyboard.instantiateViewController(withIdentifier: "OWVC") as! OpponentWaitingViewController
+                let owner = User(user_id: userJson["id"].intValue, name: userJson["name"].stringValue)
+                debugPrint("hoge")
+                debugPrint(owner.name)
+                nextView.owner = owner
+                self.present(nextView, animated: true, completion: nil)
+            })
+            signUpCompleteAlert.addAction(signUpComplete)
+            self.present(signUpCompleteAlert, animated: true, completion: nil)
+        }
+
+        
+        
+        
+    }
     
+
     
 }
