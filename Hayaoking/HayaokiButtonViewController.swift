@@ -47,7 +47,12 @@ class HayaokiButtonViewController: UIViewController {
                 debugPrint(responseJson)
                 let result = responseJson["result"].intValue  // authorizerなら-1, applicantなら1
                 let ownerPos = self.appOrAuth(user: self.owner!, matching: self.matching!)
-                var resultAlert = UIAlertController()
+                
+                debugPrint(result)
+                debugPrint("result")
+                debugPrint(ownerPos)
+                debugPrint("ownerPos")
+                let resultAlert = UIAlertController()
                 
                 if result == ownerPos {
                     // ownerの勝利
@@ -79,6 +84,8 @@ class HayaokiButtonViewController: UIViewController {
     }
     
     func appOrAuth(user: User, matching: Matching) -> Int {
+        debugPrint(user.name)
+        debugPrint(matching.authorizer)
         if user.name == matching.authorizer {
             return -1
         } else {
